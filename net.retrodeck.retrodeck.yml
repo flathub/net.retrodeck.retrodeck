@@ -1,6 +1,6 @@
 app-id: net.retrodeck.retrodeck
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 # Needed for rpcs3
 sdk-extensions:
@@ -13,28 +13,28 @@ base-version: 5.15-21.08
 command: retrodeck.sh
 
 finish-args:
-   - --socket=x11
-   - --socket=wayland
-   - --socket=pulseaudio
-   - --share=ipc
-   - --share=network
-   - --device=all
-   - --filesystem=~/retrodeck:create
-   - --filesystem=/run/media
-   - --filesystem=/media
-   - --allow=multiarch
-   - --talk-name=org.freedesktop.ScreenSaver
-   - --talk-name=org.freedesktop.PowerManagement.Inhibit
-   - --talk-name=org.freedesktop.login1
-   - --filesystem=xdg-run/app/com.discordapp.Discord:create
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --share=ipc
+  - --share=network
+  - --device=all
+  - --filesystem=~/retrodeck:create
+  - --filesystem=/run/media
+  - --filesystem=/media
+  - --allow=multiarch
+  - --talk-name=org.freedesktop.ScreenSaver
+  - --talk-name=org.freedesktop.PowerManagement.Inhibit
+  - --talk-name=org.freedesktop.login1
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
   # Yuzu
   # - --filesystem=home:ro # This may break Yuzu, let's see
   # - --filesystem=/run/media:ro
   # Dolphin
-   - --allow=bluetooth
+  - --allow=bluetooth
   #- --env=QT_QPA_PLATFORM=xcb #not sure if this will break something
   # rpcs3
-   - --socket=fallback-x11
+  - --socket=fallback-x11
 
 cleanup:
   # ES-DE
@@ -84,9 +84,9 @@ modules:
         echo $VERSION >> ${FLATPAK_DEST}/retrodeck/version
         cat ${FLATPAK_DEST}/retrodeck/version
     sources:
-    - type: git
-      url: https://github.com/XargonWan/RetroDECK.git
-      branch: cooker
+      - type: git
+        url: https://github.com/XargonWan/RetroDECK.git
+        branch: cooker
 
   - name: xmlstarlet
     config-opts:
@@ -103,7 +103,7 @@ modules:
           - autoreconf -vfi
     post-install:
       - ln -s "xml" "${FLATPAK_DEST}/bin/xmlstarlet" ||:
-    cleanup: ["*"]
+    cleanup: ['*']
 
   # mesa repo got a double certificate issue and gnutils cannot handle that so GLU download fails,
   # this affects even the shared-modules's glu so I have to replace it temporarly
@@ -123,10 +123,10 @@ modules:
   - name: libgudev
     buildsystem: meson
     config-opts:
-      - '-Dtests=disabled'
-      - '-Dvapi=disabled'
-      - '-Dintrospection=disabled'
-      - '-Dgtk_doc=false'
+      - -Dtests=disabled
+      - -Dvapi=disabled
+      - -Dintrospection=disabled
+      - -Dgtk_doc=false
     cleanup:
       - /include
       - /etc
@@ -152,43 +152,43 @@ modules:
 
   - name: ffmpeg
     config-opts:
-    - --disable-static
-    - --disable-programs
-    - --disable-doc
-    - --enable-gpl
-    - --enable-shared
-    - --enable-libvorbis
-    - --enable-libopus
-    - --enable-libvpx
-    - --enable-postproc
+      - --disable-static
+      - --disable-programs
+      - --disable-doc
+      - --enable-gpl
+      - --enable-shared
+      - --enable-libvorbis
+      - --enable-libopus
+      - --enable-libvpx
+      - --enable-postproc
     sources:
-    - type: git
-      url: https://github.com/FFmpeg/FFmpeg.git
-      tag: n5.0
+      - type: git
+        url: https://github.com/FFmpeg/FFmpeg.git
+        tag: n5.0
 
   - name: freeimage
     no-autogen: true
     build-options:
-        cxxflags: -std=c++14
+      cxxflags: -std=c++14
     make-args:
-    - DESTDIR=/app
+      - DESTDIR=/app
     sources:
-    - type: archive
-      url: http://downloads.sourceforge.net/freeimage/FreeImage3180.zip
-      sha256: f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd
-    - type: shell
-      commands:
-      - sed -i 's|-o root -g root ||' ./Makefile.gnu
-      - sed -i 's|/usr|/app|' ./Makefile.gnu
+      - type: archive
+        url: http://downloads.sourceforge.net/freeimage/FreeImage3180.zip
+        sha256: f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd
+      - type: shell
+        commands:
+          - sed -i 's|-o root -g root ||' ./Makefile.gnu
+          - sed -i 's|/usr|/app|' ./Makefile.gnu
 
   - name: pugixml
     buildsystem: cmake-ninja
     config-opts:
-    - -DBUILD_SHARED_LIBS=on .
+      - -DBUILD_SHARED_LIBS=on .
     sources:
-    - type: archive
-      url: https://github.com/zeux/pugixml/releases/download/v1.11.4/pugixml-1.11.4.tar.gz
-      sha256: 8ddf57b65fb860416979a3f0640c2ad45ddddbbafa82508ef0a0af3ce7061716
+      - type: archive
+        url: https://github.com/zeux/pugixml/releases/download/v1.11.4/pugixml-1.11.4.tar.gz
+        sha256: 8ddf57b65fb860416979a3f0640c2ad45ddddbbafa82508ef0a0af3ce7061716
 
   # When updating this module remember to check those: https://gitlab.com/es-de/emulationstation-de/-/tree/stable-1.2.5/resources/systems/unix
   # But we don't include them 1:1 as RetroDECK got some specific configs in some cases
@@ -198,13 +198,15 @@ modules:
       - es-app
       - es-core
     sources:
-    - type: git
-      url: https://gitlab.com/es-de/emulationstation-de
-      branch: 5a76fef25ffc659f098ee65215281c51a63c3198
-    - type: shell
-      commands:
-        - sed -i 's/QUIT EMULATIONSTATION/QUIT RETRODECK/g' es-app/src/guis/GuiMenu.cpp
-        - sed -i 's#"EMULATIONSTATION-DE  V" + Utils::String::toUpper(PROGRAM_VERSION_STRING)#"RetroDECK v'$(cat ${FLATPAK_DEST}/retrodeck/version)', ES-DE  v" + Utils::String::toUpper(PROGRAM_VERSION_STRING)#g' es-app/src/guis/GuiMenu.cpp
+      - type: git
+        url: https://gitlab.com/es-de/emulationstation-de
+        branch: 5a76fef25ffc659f098ee65215281c51a63c3198
+      - type: shell
+        commands:
+          - sed -i 's/QUIT EMULATIONSTATION/QUIT RETRODECK/g' es-app/src/guis/GuiMenu.cpp
+          - sed -i 's#"EMULATIONSTATION-DE  V" + Utils::String::toUpper(PROGRAM_VERSION_STRING)#"RetroDECK
+            v'$(cat ${FLATPAK_DEST}/retrodeck/version)', ES-DE  v" + Utils::String::toUpper(PROGRAM_VERSION_STRING)#g'
+            es-app/src/guis/GuiMenu.cpp
 
   # ES-DE - END
 
@@ -226,7 +228,7 @@ modules:
 
   - name: retroarch
     config-opts:
-      - '--enable-dbus'
+      - --enable-dbus
     make-args:
       - GLOBAL_CONFIG_DIR=${FLATPAK_DEST}/etc
     sources:
@@ -337,8 +339,8 @@ modules:
   - name: retroarch-cores
     buildsystem: simple
     build-commands:
-        - mkdir -p /app/share/libretro/cores/
-        - mv ./RetroArch-Linux-x86_64.AppImage.home/.config/retroarch/cores/* /app/share/libretro/cores/
+      - mkdir -p /app/share/libretro/cores/
+      - mv ./RetroArch-Linux-x86_64.AppImage.home/.config/retroarch/cores/* /app/share/libretro/cores/
     sources:
       - type: archive
         url: https://buildbot.libretro.com/stable/1.10.3/linux/x86_64/RetroArch_cores.7z
@@ -351,12 +353,12 @@ modules:
   - name: libzip
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON'
-      - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
       - type: archive
-        url: https://github.com/nih-at/libzip/archive/v1.8.0.tar.gz
-        sha256: 83e5d6d5dbe8f9df80aad388fa523ca3558398ed440a5afda6ef9b36b0ffdc1f
+        url: https://github.com/nih-at/libzip/archive/v1.9.2.tar.gz
+        sha256: 7f28eaec7a02ca099ea9dad88fc8023f7f6ddfca54b780040ff7fdb39d9efb3c
         x-checker-data:
           type: anitya
           project-id: 10649
@@ -379,12 +381,12 @@ modules:
   - name: fmt
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON'
-      - '-DFMT_TEST=OFF'
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DFMT_TEST=OFF
     sources:
       - type: archive
-        url: https://github.com/fmtlib/fmt/releases/download/8.1.1/fmt-8.1.1.zip
-        sha256: 23778bad8edba12d76e4075da06db591f3b0e3c6c04928ced4a7282ca3400e5d
+        url: https://github.com/fmtlib/fmt/releases/download/9.0.0/fmt-9.0.0.zip
+        sha256: fc96dd2d2fdf2bded630787adba892c23cb9e35c6fd3273c136b0c57d4651ad6
         x-checker-data:
           type: anitya
           project-id: 11526
@@ -393,11 +395,11 @@ modules:
   - name: glslang
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
+      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/KhronosGroup/glslang/archive/11.9.0.tar.gz
-        sha256: d5744adba19eef9ad3d73f524226b39fec559d94cb582cd442e3c5de930004b2
+        url: https://github.com/KhronosGroup/glslang/archive/11.10.0.tar.gz
+        sha256: 8ffc19c435232d09299dd2c91e247292b3508c1b826a3497c60682e4bbf2d602
         x-checker-data:
           type: anitya
           stable-only: true
@@ -406,14 +408,14 @@ modules:
   - name: catch2
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DCATCH_INSTALL_EXTRAS=ON'
-      - '-DCATCH_BUILD_TESTING=OFF'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCATCH_INSTALL_EXTRAS=ON
+      - -DCATCH_BUILD_TESTING=OFF
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/catchorg/Catch2/archive/v2.13.9.tar.gz
-        sha256: 06dbc7620e3b96c2b69d57bf337028bf245a211b3cddb843835bfe258f427a52
+        url: https://github.com/catchorg/Catch2/archive/v3.0.1.tar.gz
+        sha256: 8c4173c68ae7da1b5b505194a0c2d6f1b2aef4ec1e3e7463bde451f26bbaf4e7
         x-checker-data:
           type: anitya
           stable-only: true
@@ -422,9 +424,9 @@ modules:
   - name: nlohmann-json
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON'
-      - '-DJSON_BuildTests=OFF'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DJSON_BuildTests=OFF
     sources:
       - type: archive
         url: https://github.com/nlohmann/json/archive/v3.10.5.tar.gz
@@ -466,21 +468,21 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
-      - '-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON'
-      - '-DENABLE_QT_TRANSLATION=ON'
-      - '-DYUZU_ENABLE_COMPATIBILITY_REPORTING=ON'
-      - '-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=ON'
-      - '-DYUZU_USE_QT_WEB_ENGINE=ON'
-      - '-DYUZU_USE_BUNDLED_FFMPEG=ON'
-      - '-DDISPLAY_VERSION=1039'
-      - '-DBUILD_TAG=mainline-1039'
-      - '-DBUILD_REPOSITORY=yuzu-emu/yuzu-mainline'
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DENABLE_QT_TRANSLATION=ON
+      - -DYUZU_ENABLE_COMPATIBILITY_REPORTING=ON
+      - -DENABLE_COMPATIBILITY_LIST_DOWNLOAD=ON
+      - -DYUZU_USE_QT_WEB_ENGINE=ON
+      - -DYUZU_USE_BUNDLED_FFMPEG=ON
+      - -DDISPLAY_VERSION=1039
+      - -DBUILD_TAG=mainline-1039
+      - -DBUILD_REPOSITORY=yuzu-emu/yuzu-mainline
     build-options:
       env:
         TITLEBARFORMATIDLE: yuzu {}
         TITLEBARFORMATRUNNING: yuzu {} | {}
-        LDFLAGS: '-L/app/lib -Wl,-z,relro,-z,now -Wl,--as-needed'
+        LDFLAGS: -L/app/lib -Wl,-z,relro,-z,now -Wl,--as-needed
     cleanup:
       - /share/man
       - /share/pixmaps
@@ -492,8 +494,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/yuzu-emu/yuzu-mainline.git
-        tag: mainline-0-1039
-        commit: 983afc5328725109a1cf13c61103b8a553c005d0
+        tag: mainline-0-1079
+        commit: 1a4d4f2057abad4fad4d25b2e011fd2ba098a1de
         disable-shallow-clone: true
         x-checker-data:
           type: git
@@ -502,7 +504,7 @@ modules:
         path: rd-submodules/yuzu/yuzu-launcher.sh
       - type: file
         path: rd-submodules/yuzu/compatibility_list.json
-        
+
   # Yuzu - END
 
   # PCSX2 - START
@@ -511,7 +513,7 @@ modules:
   - name: wxWidgets
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
+      - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /bin
       - /include
@@ -519,8 +521,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/wxWidgets/wxWidgets.git
-        tag: v3.1.6
-        commit: 19907924842a9152b8ee5f03f117aed65193b964
+        tag: v3.1.7
+        commit: 7ad1bffa875f7a38db58b6069ea3ff0c49c211d2
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -543,7 +545,7 @@ modules:
   - name: portaudio
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
+      - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /include
       - /share/doc
@@ -606,13 +608,13 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DPACKAGE_MODE=TRUE'
-      - '-DXDG_STD=TRUE'
-      - '-DDISABLE_BUILD_DATE=TRUE'
-      - '-DDISABLE_PCSX2_WRAPPER=TRUE'
-      - '-DDISABLE_ADVANCE_SIMD=TRUE'
-      - '-DSDL2_API=TRUE'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DPACKAGE_MODE=TRUE
+      - -DXDG_STD=TRUE
+      - -DDISABLE_BUILD_DATE=TRUE
+      - -DDISABLE_PCSX2_WRAPPER=TRUE
+      - -DDISABLE_ADVANCE_SIMD=TRUE
+      - -DSDL2_API=TRUE
     cleanup:
       - /share/pixmaps
       - /share/man
@@ -627,55 +629,55 @@ modules:
   # This is only to make it buildable by the flathub builder as normaly it seems not to be needed
         disable-submodules: true
       - type: git
-        dest: "3rdparty/xz/xz"
+        dest: 3rdparty/xz/xz
         url: https://github.com/PCSX2/xz.git
         commit: 3d566cd519017eee1a400e7961ff14058dfaf33c
       - type: git
-        dest: "3rdparty/gtest"
+        dest: 3rdparty/gtest
         url: https://github.com/google/googletest.git
         commit: e2239ee6043f73722e7aa812a459f54a28552929
       - type: git
-        dest: "3rdparty/fmt/fmt"
+        dest: 3rdparty/fmt/fmt
         url: https://github.com/fmtlib/fmt.git
         commit: b6f4ceaed0a0a24ccf575fab6c56dd50ccf6f1a9
       - type: git
-        dest: "3rdparty/libchdr/libchdr"
+        dest: 3rdparty/libchdr/libchdr
         url: https://github.com/rtissera/libchdr.git
         commit: 5de1a59019815ccdbba0fe07c71b31406d023248
       - type: git
-        dest: "3rdparty/wil"
+        dest: 3rdparty/wil
         url: https://github.com/microsoft/wil.git
         commit: 3018875eaa4f8e3d86cf2da97fd577bae59f3aec
       - type: git
-        dest: "3rdparty/cubeb/cubeb"
+        dest: 3rdparty/cubeb/cubeb
         url: https://github.com/mozilla/cubeb.git
         commit: 773f16b7ea308392c05be3e290163d1f636e6024
       - type: git
-        dest: "3rdparty/rapidyaml/rapidyaml"
+        dest: 3rdparty/rapidyaml/rapidyaml
         url: https://github.com/biojppm/rapidyaml.git
         commit: 213b201d264139cd1b887790197e08850af628e3
       - type: git
-        dest: "3rdparty/imgui/imgui"
+        dest: 3rdparty/imgui/imgui
         url: https://github.com/ocornut/imgui.git
         commit: 60bea052a92cbb4a93b221002fdf04f0da3698e1
       - type: git
-        dest: "3rdparty/glslang/glslang"
+        dest: 3rdparty/glslang/glslang
         url: https://github.com/KhronosGroup/glslang.git
         commit: c9706bdda0ac22b9856f1aa8261e5b9e15cd20c5
       - type: git
-        dest: "3rdparty/vulkan-headers"
+        dest: 3rdparty/vulkan-headers
         url: https://github.com/KhronosGroup/Vulkan-Headers.git
         commit: 52a76fd0a693708eb8c25bd0ab7a1008091f64d4
       - type: git
-        dest: "3rdparty/sdl2/SDL"
+        dest: 3rdparty/sdl2/SDL
         url: https://github.com/libsdl-org/SDL.git
         commit: 53dea9830964eee8b5c2a7ee0a65d6e268dc78a1
       - type: git
-        dest: "3rdparty/libzip/libzip"
+        dest: 3rdparty/libzip/libzip
         url: https://github.com/nih-at/libzip.git
         commit: bdc03ab23b703fcc516436d6ebcbfb6ac4484033
       - type: git
-        dest: "3rdparty/zstd/zstd"
+        dest: 3rdparty/zstd/zstd
         url: https://github.com/facebook/zstd.git
         commit: e47e674cd09583ff0503f0f6defd6d23d8b718d3
   # PCSX2 Flathub Workaround - END
@@ -773,9 +775,9 @@ modules:
           - bv=`cat /sys/devices/virtual/dmi/id/board_vendor`
           - bv=$bv`cat /sys/devices/virtual/dmi/id/board_name`
           - if [[ $bv == "ValveJupiter" ]]; then
-          -   QT_QPA_PLATFORMTHEME=gtk3 dolphin-emu "$@"
+          - QT_QPA_PLATFORMTHEME=gtk3 dolphin-emu "$@"
           - else
-          -   dolphin-emu "$@"
+          - dolphin-emu "$@"
           - fi
         dest-filename: dolphin-emu-wrapper
 
@@ -835,8 +837,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mborgerson/xemu.git
-        tag: v0.7.29
-        commit: 69dcbe9b3081ee51d1468b1b7777b8b930bfba6c
+        tag: v0.7.58
+        commit: 6f878ede01ad1992392dde22b506a3c00fab87c4
         x-checker-data:
           type: json
           url: https://api.github.com/repos/mborgerson/xemu/releases/latest
@@ -878,13 +880,13 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DENABLE_QT_TRANSLATION=ON'
-      - '-DCITRA_ENABLE_COMPATIBILITY_REPORTING=ON'
-      - '-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=ON'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DENABLE_QT_TRANSLATION=ON
+      - -DCITRA_ENABLE_COMPATIBILITY_REPORTING=ON
+      - -DENABLE_COMPATIBILITY_LIST_DOWNLOAD=ON
       #- '-DENABLE_FFMPEG_VIDEO_DUMPER=ON'
       # Disabled because of this: https://github.com/citra-emu/citra/issues/5949
-      - '-DENABLE_FDK=ON'
+      - -DENABLE_FDK=ON
     cleanup:
       - /share/man
       - /share/pixmaps
@@ -898,15 +900,14 @@ modules:
     sources:
       - type: git
         url: https://github.com/citra-emu/citra-nightly.git
-        tag: nightly-1770
-        commit: 88a475970240e1dbade1720b02f9e5338647b1b8
+        tag: nightly-1772
+        commit: 355933218d00603c910cd0a9daead0b1cd72a3c3
         disable-shallow-clone: true
         x-checker-data:
           type: git
           tag-pattern: ^(nightly-\d+)$
 
   # CITRA - END
-  
   # RPCS3 - START
   # https://github.com/flathub/net.rpcs3.RPCS3
 
@@ -1001,7 +1002,6 @@ modules:
         commit: e9570d1a0045926f63ec8ea9af68f81743d4f365
 
   # RPCS3 - END
-  
   # PRIMEHACK - START
   # https://github.com/flathub/io.github.shiiion.primehack
   # Disabled because it's overwriting Dolphin
@@ -1048,18 +1048,18 @@ modules:
   - name: ppsspp
     buildsystem: cmake-ninja
     config-opts:
-    - '-DUSE_SYSTEM_FFMPEG=OFF' # turn this on?
-    - '-DUSE_SYSTEM_LIBZIP=ON'
-    - '-DUSE_SYSTEM_ZSTD=ON'
+      - -DUSE_SYSTEM_FFMPEG=OFF # turn this on?
+      - -DUSE_SYSTEM_LIBZIP=ON
+      - -DUSE_SYSTEM_ZSTD=ON
 
-    - '-DUSE_WAYLAND_WSI=ON'
-    - '-DUSING_X11_VULKAN=ON'
-    - '-DUSING_QT_UI=OFF'
+      - -DUSE_WAYLAND_WSI=ON
+      - -DUSING_X11_VULKAN=ON
+      - -DUSING_QT_UI=OFF
 
-    - '-DBUILD_TESTING=OFF'
-    - '-DOpenGL_GL_PREFERENCE=GLVND'
+      - -DBUILD_TESTING=OFF
+      - -DOpenGL_GL_PREFERENCE=GLVND
     build-options:
-      - '-DX86_64=ON'
+      - -DX86_64=ON
     sources:
       - type: git
         url: https://github.com/hrydgard/ppsspp.git
@@ -1068,7 +1068,7 @@ modules:
         disable-submodules: true # Part of the PPSSPP Flathub Workaround
         x-checker-data:
           type: git
-          tag-pattern: "^v([\\d.]+)$"
+          tag-pattern: ^v([\d.]+)$
 
   # PPSSPP Flathub Workaround - START
   # This workaround disables the PPSSPP libraries (disable-submodules: true) and install them separately
@@ -1127,67 +1127,65 @@ modules:
         commit: 682a4303aba63a50c91ae0fa6928c9dac8ca9b92
         url: https://github.com/hrydgard/pspautotests.git
   # PPSSPP Flathub Workaround - END
-  
   # PPSSPP - END
 
   # External manifests end
-  
 
   - name: retrodeck
     buildsystem: simple
     build-commands:
 
         # Prep the ES-DE and RetroArch config files - I will have to SED/XMLSTARLET them soon
-        - rm -rf /app/share/emulationstation/resources/systems/unix/es_find_rules.xml
-        - cp es-configs/es_find_rules.xml /app/share/emulationstation/resources/systems/unix/
-        - rm -rf /app/share/emulationstation/resources/systems/unix/es_systems.xml
-        - cp es-configs/es_systems.xml /app/share/emulationstation/resources/systems/unix/
+      - rm -rf /app/share/emulationstation/resources/systems/unix/es_find_rules.xml
+      - cp es-configs/es_find_rules.xml /app/share/emulationstation/resources/systems/unix/
+      - rm -rf /app/share/emulationstation/resources/systems/unix/es_systems.xml
+      - cp es-configs/es_systems.xml /app/share/emulationstation/resources/systems/unix/
         # These must be put in home folder, managed by retrodeck.sh
-        - cp es-configs/es_settings.xml ${FLATPAK_DEST}/retrodeck/es_settings.xml
+      - cp es-configs/es_settings.xml ${FLATPAK_DEST}/retrodeck/es_settings.xml
 
         # Logo, res
-        - rm -f /app/share/emulationstation/resources/graphics/splash.svg
-        - cp res/splash.svg /app/share/emulationstation/resources/graphics/splash.svg
-        - cp res/icon.svg /app/share/icons/hicolor/scalable/apps/net.retrodeck.retrodeck.svg
+      - rm -f /app/share/emulationstation/resources/graphics/splash.svg
+      - cp res/splash.svg /app/share/emulationstation/resources/graphics/splash.svg
+      - cp res/icon.svg /app/share/icons/hicolor/scalable/apps/net.retrodeck.retrodeck.svg
 
         # Tools
-        - mkdir -p ${FLATPAK_DEST}/retrodeck/tools/
-        - cp tools/* ${FLATPAK_DEST}/retrodeck/tools/
-        - mv -f es-configs/tools-gamelist.xml ${FLATPAK_DEST}/retrodeck/
-        
-        - cp retrodeck.sh /app/bin/retrodeck.sh
-        - chmod +x /app/bin/retrodeck.sh
-        
+      - mkdir -p ${FLATPAK_DEST}/retrodeck/tools/
+      - cp tools/* ${FLATPAK_DEST}/retrodeck/tools/
+      - mv -f es-configs/tools-gamelist.xml ${FLATPAK_DEST}/retrodeck/
+
+      - cp retrodeck.sh /app/bin/retrodeck.sh
+      - chmod +x /app/bin/retrodeck.sh
+
         # Desktop entry
-        - cp net.retrodeck.retrodeck.desktop /app/share/applications/net.retrodeck.retrodeck.desktop
+      - cp net.retrodeck.retrodeck.desktop /app/share/applications/net.retrodeck.retrodeck.desktop
 
         # TODO: group the configs per-emu and optimize the following cps, like already done with Dolphin. Please not that some files may be renamed, check retrodeck.sh to know how (and fix it after the edit)
 
         # Configuring emulators:
-        - mkdir -p ${FLATPAK_DEST}/retrodeck/emu-configs/Dolphin
+      - mkdir -p ${FLATPAK_DEST}/retrodeck/emu-configs/Dolphin
         # RetroArch
-        - cp emu-configs/retroarch* ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/retroarch* ${FLATPAK_DEST}/retrodeck/emu-configs/
         # Dolphin 
-        - cp emu-configs/Dolphin/* ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/Dolphin/* ${FLATPAK_DEST}/retrodeck/emu-configs/
         # Yuzu
-        - cp emu-configs/yuzu-qt-config.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/yuzu-qt-config.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
         # Pcsx2
-        - cp emu-configs/PCSX2_ui.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
-        - cp emu-configs/GS.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
-        - cp emu-configs/PCSX2_vm.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/PCSX2_ui.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/GS.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/PCSX2_vm.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
         # MelonDS
-        - cp emu-configs/melonDS.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/melonDS.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
         # CITRA
-        - cp emu-configs/citra-qt-config.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/citra-qt-config.ini ${FLATPAK_DEST}/retrodeck/emu-configs/
         # RPCS3
-        - cp emu-configs/config.yml ${FLATPAK_DEST}/retrodeck/emu-configs/
+      - cp emu-configs/config.yml ${FLATPAK_DEST}/retrodeck/emu-configs/
 
         # Overlays
         #- cp -r overlays ${FLATPAK_DEST}/retrodeck/overlays Disabled in 0.4.2b as it will be introduced in 0.5.0b
 
         # Placing appdata
-        - mkdir -p ${FLATPAK_DEST}/share/appdata
-        - cp net.retrodeck.retrodeck.appdata.xml ${FLATPAK_DEST}/share/appdata
+      - mkdir -p ${FLATPAK_DEST}/share/appdata
+      - cp net.retrodeck.retrodeck.appdata.xml ${FLATPAK_DEST}/share/appdata
 
     sources:
       - type: git
