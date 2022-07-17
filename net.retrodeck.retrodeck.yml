@@ -398,8 +398,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/KhronosGroup/glslang/archive/11.9.0.tar.gz
-        sha256: d5744adba19eef9ad3d73f524226b39fec559d94cb582cd442e3c5de930004b2
+        url: https://github.com/KhronosGroup/glslang/archive/11.10.0.tar.gz
+        sha256: 8ffc19c435232d09299dd2c91e247292b3508c1b826a3497c60682e4bbf2d602
         x-checker-data:
           type: anitya
           stable-only: true
@@ -494,8 +494,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/yuzu-emu/yuzu-mainline.git
-        tag: mainline-0-1039
-        commit: 983afc5328725109a1cf13c61103b8a553c005d0
+        tag: mainline-0-1093
+        commit: 257b6cb27d3697126cd31c7c4d6a49a0878ad9c8
         disable-shallow-clone: true
         x-checker-data:
           type: git
@@ -533,8 +533,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/citra-emu/citra-nightly.git
-        tag: nightly-1772
-        commit: 355933218d00603c910cd0a9daead0b1cd72a3c3
+        tag: nightly-1773
+        commit: 353aaaf665d70999f7ee524b3b84914944627a45
         disable-shallow-clone: true
         x-checker-data:
           type: git
@@ -556,8 +556,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/wxWidgets/wxWidgets.git
-        tag: v3.1.7
-        commit: 7ad1bffa875f7a38db58b6069ea3ff0c49c211d2
+        tag: v3.2.0
+        commit: 5b5ec3804a31a3765d60ff351bbdf79eddb1e1f9
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -872,8 +872,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mborgerson/xemu.git
-        tag: v0.7.58
-        commit: 6f878ede01ad1992392dde22b506a3c00fab87c4
+        tag: v0.7.60
+        commit: 8d274e5f9a9dbe777ffba6a8b3d269adbf682690
         x-checker-data:
           type: json
           url: https://api.github.com/repos/mborgerson/xemu/releases/latest
