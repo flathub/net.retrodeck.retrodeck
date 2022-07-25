@@ -357,8 +357,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
       - type: archive
-        url: https://github.com/nih-at/libzip/archive/v1.8.0.tar.gz
-        sha256: 83e5d6d5dbe8f9df80aad388fa523ca3558398ed440a5afda6ef9b36b0ffdc1f
+        url: https://github.com/nih-at/libzip/archive/v1.9.2.tar.gz
+        sha256: 7f28eaec7a02ca099ea9dad88fc8023f7f6ddfca54b780040ff7fdb39d9efb3c
         x-checker-data:
           type: anitya
           project-id: 10649
@@ -385,8 +385,8 @@ modules:
       - -DFMT_TEST=OFF
     sources:
       - type: archive
-        url: https://github.com/fmtlib/fmt/releases/download/8.1.1/fmt-8.1.1.zip
-        sha256: 23778bad8edba12d76e4075da06db591f3b0e3c6c04928ced4a7282ca3400e5d
+        url: https://github.com/fmtlib/fmt/releases/download/9.0.0/fmt-9.0.0.zip
+        sha256: fc96dd2d2fdf2bded630787adba892c23cb9e35c6fd3273c136b0c57d4651ad6
         x-checker-data:
           type: anitya
           project-id: 11526
@@ -398,8 +398,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/KhronosGroup/glslang/archive/11.9.0.tar.gz
-        sha256: d5744adba19eef9ad3d73f524226b39fec559d94cb582cd442e3c5de930004b2
+        url: https://github.com/KhronosGroup/glslang/archive/11.10.0.tar.gz
+        sha256: 8ffc19c435232d09299dd2c91e247292b3508c1b826a3497c60682e4bbf2d602
         x-checker-data:
           type: anitya
           stable-only: true
@@ -414,8 +414,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/catchorg/Catch2/archive/v2.13.9.tar.gz
-        sha256: 06dbc7620e3b96c2b69d57bf337028bf245a211b3cddb843835bfe258f427a52
+        url: https://github.com/catchorg/Catch2/archive/v3.1.0.tar.gz
+        sha256: c252b2d9537e18046d8b82535069d2567f77043f8e644acf9a9fffc22ea6e6f7
         x-checker-data:
           type: anitya
           stable-only: true
@@ -494,8 +494,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/yuzu-emu/yuzu-mainline.git
-        tag: mainline-0-1039
-        commit: 983afc5328725109a1cf13c61103b8a553c005d0
+        tag: mainline-0-1108
+        commit: dfaab8f6571856ec3c75cfad303a50503d213665
         disable-shallow-clone: true
         x-checker-data:
           type: git
@@ -533,8 +533,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/citra-emu/citra-nightly.git
-        tag: nightly-1772
-        commit: 355933218d00603c910cd0a9daead0b1cd72a3c3
+        tag: nightly-1775
+        commit: 357025dfdf2b08204b0a3ae38330dc5fe3f05103
         disable-shallow-clone: true
         x-checker-data:
           type: git
@@ -556,8 +556,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/wxWidgets/wxWidgets.git
-        tag: v3.1.7
-        commit: 7ad1bffa875f7a38db58b6069ea3ff0c49c211d2
+        tag: v3.2.0
+        commit: 5b5ec3804a31a3765d60ff351bbdf79eddb1e1f9
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -872,8 +872,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mborgerson/xemu.git
-        tag: v0.7.58
-        commit: 6f878ede01ad1992392dde22b506a3c00fab87c4
+        tag: v0.7.65
+        commit: c83b53e09ddbbfea48ecddfb9cfb40b7e87fd8c3
         x-checker-data:
           type: json
           url: https://api.github.com/repos/mborgerson/xemu/releases/latest
