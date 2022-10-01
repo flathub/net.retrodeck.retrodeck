@@ -38,6 +38,7 @@
 	No other software is needed as everything it's already included!</p>
   <p>
   NOTE: Albeit RetroDECK could possibily work on every distro, it's supported only on Steam Deck.</p>
+
   <p>INSTALLATION INSTRUCTIONS:</p>
   <ul>
     <li>Start RetroDECK from the Desktop mode (first time only)</li>
@@ -47,30 +48,43 @@
     <li>Always start RetroDECK from Steam Library</li>
   </ul>
   <p>For a better experience is suggested to use the official Steam Controller Config available under community configs in Steam</p>
+
+  <p>Known Issues:</p>
+    <ul>
+      <li>PCSX2: due to its limitation, the standalone PCSX2 doesn't have any way to set the hotkeys, so no save and load state, no quit button. In order to quit press: STEAM -> PCSX2 -> (X) CLOSE WINDOW, be aware that the state is not automatically saved</li>
+      <li>As of this moment external controllers, local multiplayer in gamemode are not supported. Neither is running RetroDECK in desktop mode, we plan on adding the functionality in the future</li>
+    </ul>
+
+    IMPORTANT NOTE:
+    At the moment the emulator configs are reset during every update, this was made because every version they may bring new configurations, please back them up if you did some manual configs.
   </description>
   <project_license>GPL-3.0</project_license>
   <metadata_license>CC0-1.0</metadata_license>
   <releases>
 
-<release version="0.4.5b" date="2022-07-20">
-      <url>https://github.com/XargonWan/RetroDECK/releases/tag/0.4.5b</url>
+    <release version="0.5.0b" date="2022-07-18">
+      <url>https://github.com/XargonWan/RetroDECK/releases/tag/0.5.5b</url>
       <description>
          <ul>
-          <li>Fixed a bug where new symlinks were not created correctly and users couldn't scrape their games</li>
+          <li>IMPORTANT: Started saves migration, the saves are being moved to retrodeck/saves/systemname/emulator upon update, however if some emulators cannot load your saves you have to move them manually to the new path</li>
+          <li>Theme revamp and more themes available such as the old one</li>
+          <li>Updated RetroArch and its cores from 1.10.2 to 1.11.0</li>
+          <li>Updated all the standalone emulators to their latest releases</li>
+          <li>Updated ES-DE to 1.2.6</li>
+          <li>Removed the unavailable emulators from the ES-DE list to avoid confusion</li>
+          <li>Updated XEMU configurations and added its (free) assets</li>
+          <li>Added free assets for RetroArch, PPSSPP and BlueMSX (libretro)</li>
+          <li>New emulator: PCSX2-QT, it's now the default PS2 emulator. Former PCSX2 emulator is now called PCSX2 (Legacy).</li>
+          <li>New emualtor: Duckstation for PSX.</li>
+          <li>Swanstation (Libretro) is the new PSX default emulator, so if you don't find your saves just switch back to Beetle</li>
+          <li>New varialbes system: now some variables such as game folder location are saved in /var/config/retrodeck/retrodeck.cfg.</li>
+          <li>Solved an issue where Dolphin (Standalone) was not saving in the intended directories.</li>
         </ul>
 
-        <p>Known Issues:</p>
-        <ul>
-          <li>PCSX2: due to its limitation, the standalone PCSX2 doesn't have any way to set the hotkeys, so no save and load state, no quit button. In order to quit press: STEAM -> PCSX2 -> (X) CLOSE WINDOW, be aware that the state is not automatically saved</li>
-          <li>Due to a Steam limitation, external controllers and keyboard seems not to be working, expecially in the desktop mode</li>
-        </ul>
-
-        IMPORTANT NOTE:
-        At the moment the emulator configs are reset during every update, this was made because every version they may bring new configurations, please back them up if you did some manual configs.
       </description>
   </release>
 
-    <release version="0.4.4b" date="2022-07-18">
+  <release version="0.4.4b" date="2022-07-18">
       <url>https://github.com/XargonWan/RetroDECK/releases/tag/0.4.4b</url>
       <description>
          <ul>
@@ -121,9 +135,9 @@
         At the moment the emulator configs are reset during every update, this was made because every version they may bring new configurations, please back them up if you did some manual configs.
         </p>
       </description>
-  </release>
+    </release>
 
-  <release version="0.4.2b" date="2022-05-11">
+    <release version="0.4.2b" date="2022-07-01">
       <url>https://github.com/XargonWan/RetroDECK/releases/tag/0.4.2b</url>
       <description>
         <p><b>Emulators:</b></p>
