@@ -12,7 +12,7 @@ command: retrodeck.sh
 
 finish-args:
   - --socket=x11
-  - --socket=wayland
+  #- --socket=wayland
   - --socket=pulseaudio
   - --share=ipc
   - --share=network
@@ -32,7 +32,7 @@ finish-args:
   - --allow=bluetooth
   #- --env=QT_QPA_PLATFORM=xcb #not sure if this will break something
   # rpcs3
-  - --socket=fallback-x11
+  #- --socket=fallback-x11
 
 modules:
   - name: retrodeck
@@ -42,4 +42,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  00ed57363906793df35350c33599e3052c27a0588ec57aa353d29d26950c2f66
+      sha256:  52ec53e1a89f3bff87ba1bdded8f93080211ca48a64cc9da2d80394965b54df9
