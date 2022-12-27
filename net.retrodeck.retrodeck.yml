@@ -5,7 +5,7 @@ runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm14    # Needed for rpcs3
-  - org.freedesktop.Sdk.Extension.dotnet6   # Needed for Ryujinx
+  #- org.freedesktop.Sdk.Extension.dotnet6   # Needed for Ryujinx - Removed, check if it's not breaking something else
 base: io.qt.qtwebengine.BaseApp             # Needed for Yuzu
 base-version: 5.15-21.08                    # Needed for Yuzu
 command: retrodeck.sh
@@ -17,13 +17,13 @@ finish-args:
   - --share=ipc
   - --share=network
   - --device=all
-  - --filesystem=~/retrodeck:create
+  - --filesystem=home # Needed to be able to relocate / remove / create symlink at ~/retrodeck
   - --filesystem=/run/media
   - --filesystem=/media
   - --allow=multiarch
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.freedesktop.PowerManagement.Inhibit
-  - --talk-name=org.freedesktop.login1
+  - --talk-name=org.freedesktop.login1.Manager
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
   # Yuzu
   # - --filesystem=home:ro # This may break Yuzu, let's see
@@ -42,4 +42,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  52ec53e1a89f3bff87ba1bdded8f93080211ca48a64cc9da2d80394965b54df9
+      sha256:  a300b94c3c171649cd14159cd8d5c8733ca4a2b692df00cdbea83b8bd8089a49
