@@ -42,4 +42,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  82c0c7816f859c81cd0bf3033ac50c7809dbc1b247b9127aecda9b78dd85b373
+      sha256:  020c72975b85bc10cde3a539166de7179eacf0d14ba4fbd4758b2c703e3e4c4d
