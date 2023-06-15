@@ -1,18 +1,16 @@
 app-id: net.retrodeck.retrodeck
 runtime: org.kde.Platform
-runtime-version: 5.15-21.08
-#runtime-version: 6.3                        # bumped because of pcsx2-qt
+runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm14    # Needed for rpcs3
-  #- org.freedesktop.Sdk.Extension.dotnet6   # Needed for Ryujinx - Removed, check if it's not breaking something else
 base: io.qt.qtwebengine.BaseApp             # Needed for Yuzu
-base-version: 5.15-21.08                    # Needed for Yuzu
+base-version: 5.15-22.08                    # Needed for Yuzu
 command: retrodeck.sh
 
 finish-args:
-  - --socket=x11
-  #- --socket=wayland
+  - --socket=fallback-x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --share=ipc
   - --share=network
@@ -25,14 +23,12 @@ finish-args:
   - --talk-name=org.freedesktop.PowerManagement.Inhibit
   - --talk-name=org.freedesktop.login1.Manager
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
-  # Yuzu
-  # - --filesystem=home:ro # This may break Yuzu, let's see
-  # - --filesystem=/run/media:ro
   # Dolphin
   - --allow=bluetooth
-  #- --env=QT_QPA_PLATFORM=xcb #not sure if this will break something
-  # rpcs3
-  #- --socket=fallback-x11
+  # PPSSPP
+  # It allows an SDL application to specify its window class, which can be useful for window managers and desktop environments to identify and group similar windows
+  - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck
+  - --env=SDL_VIDEO_WAYLAND_WMCLASS=net.retrodeck.retrodeck
 
 modules:
   - name: retrodeck
@@ -42,4 +38,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  78e8776d067f19529830602a0e6a37f74e4e1ddb66e1c86271f20b1b84f1cf57
+      sha256:  66eb8da16ec203c3882aa3b5a908142d85a9c5fa312183849b2227ee601801da
