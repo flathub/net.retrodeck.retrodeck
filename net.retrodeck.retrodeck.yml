@@ -22,7 +22,9 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.freedesktop.PowerManagement.Inhibit
   - --talk-name=org.freedesktop.login1.Manager
+  - --talk-name=org.freedesktop.portal.Flatpak.UpdateMonitor
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
+  - --filesystem=xdg-config/gtk-3.0:ro
   # Dolphin
   - --allow=bluetooth
   # PPSSPP
@@ -38,4 +40,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  f1de8b4d776ae2f32562ebde20367733da055d180b711ad5d3a353caab7663ab
+      sha256:  324d50fa60f973747f74d1e3516fbcc2cfc47700f44897b9bfce97b34e237920
