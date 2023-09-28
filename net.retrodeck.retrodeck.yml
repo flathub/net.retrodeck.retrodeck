@@ -3,10 +3,19 @@ runtime: org.kde.Platform
 runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.llvm14    # Needed for rpcs3
-base: io.qt.qtwebengine.BaseApp             # Needed for Yuzu
-base-version: 5.15-22.08                    # Needed for Yuzu
+  - org.freedesktop.Sdk.Extension.llvm14
+base: io.qt.qtwebengine.BaseApp
+base-version: 5.15-22.08
 command: retrodeck.sh
+
+add-extensions:
+  org.ppsspp.PPSSPP.Locale:
+    directory: share/locale
+    bundle: true
+    no-autodownload: false
+    subdirectories: false
+    autodelete: true
+    locale-subset: true
 
 finish-args:
   - --socket=fallback-x11
@@ -15,7 +24,7 @@ finish-args:
   - --share=ipc
   - --share=network
   - --device=all
-  - --filesystem=home # Needed to be able to relocate / remove / create symlink at ~/retrodeck
+  - --filesystem=home
   - --filesystem=/run/media
   - --filesystem=/media
   - --allow=multiarch
@@ -25,10 +34,7 @@ finish-args:
   - --talk-name=org.freedesktop.portal.Flatpak.UpdateMonitor
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
   - --filesystem=xdg-config/gtk-3.0:ro
-  # Dolphin
   - --allow=bluetooth
-  # PPSSPP
-  # It allows an SDL application to specify its window class, which can be useful for window managers and desktop environments to identify and group similar windows
   - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck
   - --env=SDL_VIDEO_WAYLAND_WMCLASS=net.retrodeck.retrodeck
 
@@ -40,4 +46,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  324d50fa60f973747f74d1e3516fbcc2cfc47700f44897b9bfce97b34e237920
+      sha256:  1cc4e571b3a700611d64577435dc124bd77fe548443189d65bd0ab77cb979f7a
