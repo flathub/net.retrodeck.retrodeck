@@ -1,11 +1,9 @@
 app-id: net.retrodeck.retrodeck
 runtime: org.kde.Platform
-runtime-version: 5.15-22.08
+runtime-version: "6.5"
 sdk: org.kde.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.llvm14
-base: io.qt.qtwebengine.BaseApp
-base-version: 5.15-22.08
+  - org.freedesktop.Sdk.Extension.llvm16
 command: retrodeck.sh
 
 add-extensions:
@@ -37,6 +35,7 @@ finish-args:
   - --allow=bluetooth
   - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck
   - --env=SDL_VIDEO_WAYLAND_WMCLASS=net.retrodeck.retrodeck
+  - --unset-env=QEMU_AUDIO_DRV
 
 modules:
   - name: retrodeck
@@ -46,4 +45,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  d974327a0122191a9f704d7bf012463a4e1eca14f84295781b2aaf2f7b9b9d0f
+      sha256:  760ee580242adc3f8e64366c68df87181556e427b2d952f904bfd80a982e8c65
