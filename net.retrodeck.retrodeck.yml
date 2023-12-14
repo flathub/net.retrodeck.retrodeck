@@ -31,7 +31,6 @@ finish-args:
   - --talk-name=org.freedesktop.login1.Manager
   - --talk-name=org.freedesktop.portal.Flatpak.UpdateMonitor
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
-  - --filesystem=xdg-config/gtk-3.0:ro
   - --allow=bluetooth
   - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck
   - --env=SDL_VIDEO_WAYLAND_WMCLASS=net.retrodeck.retrodeck
@@ -45,4 +44,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  29eef7d04c92aca6894fce08cbcd2af8dd8234edda96f5552407b3f3ae60c134
+      sha256:  c78d0a0d38b9a9fdc190552dff06b81349d06b501ec6937f662423640dd3986b
