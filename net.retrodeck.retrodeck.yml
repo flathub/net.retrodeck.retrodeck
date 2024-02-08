@@ -6,15 +6,6 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm16
 command: retrodeck.sh
 
-add-extensions:
-  org.ppsspp.PPSSPP.Locale:
-    directory: share/locale
-    bundle: true
-    no-autodownload: false
-    subdirectories: false
-    autodelete: true
-    locale-subset: true
-
 finish-args:
   - --socket=fallback-x11
   - --socket=wayland
@@ -25,11 +16,8 @@ finish-args:
   - --filesystem=home
   - --filesystem=/run/media
   - --filesystem=/media
+  - --filesystem=home/.var/app/com.valvesoftware.Steam
   - --allow=multiarch
-  - --talk-name=org.freedesktop.ScreenSaver
-  - --talk-name=org.freedesktop.PowerManagement.Inhibit
-  - --talk-name=org.freedesktop.login1.Manager
-  - --talk-name=org.freedesktop.portal.Flatpak.UpdateMonitor
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
   - --allow=bluetooth
   - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck
@@ -44,4 +32,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  04f3368e2d7e44748c14d4c97f143b5a0e5b31d5ea84436168c93ff7d1e67204
+      sha256:  de3f8599a25e147be8d26290f400a43ca2ea1493a325250b89093ddf0f12c550
