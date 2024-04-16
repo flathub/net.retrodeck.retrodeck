@@ -4,11 +4,12 @@ runtime-version: "6.5"
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm16
+  - org.freedesktop.Sdk.Extension.rust-stable
 command: retrodeck.sh
 
 finish-args:
-  - --socket=fallback-x11
   - --socket=wayland
+  - --socket=x11
   - --socket=pulseaudio
   - --share=ipc
   - --share=network
@@ -16,16 +17,23 @@ finish-args:
   - --filesystem=home
   - --filesystem=/run/media
   - --filesystem=/media
+  - --filesystem=/mnt
   - --filesystem=home/.var/app/com.valvesoftware.Steam
   - --allow=multiarch
   - --talk-name=org.freedesktop.ScreenSaver
   - --talk-name=org.freedesktop.PowerManagement.Inhibit
   - --talk-name=org.freedesktop.login1.Manager
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
+  - --filesystem=xdg-config/gtk-3.0:ro
+  - --env=QT_QPA_PLATFORM=wayland-egl;wayland;xcb
   - --allow=bluetooth
   - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck
   - --env=SDL_VIDEO_WAYLAND_WMCLASS=net.retrodeck.retrodeck
   - --unset-env=QEMU_AUDIO_DRV
+  - --filesystem=xdg-data/Steam:rw
+  - --filesystem=~/.steam:rw
+  - --filesystem=~/.var/app/com.valvesoftware.Steam:rw
+  - --filesystem=xdg-run/gamescope-0:ro
 
 modules:
   - name: retrodeck
@@ -35,4 +43,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  10e5de1e9482afdcc05f81497b2c0319d6af76c9cfe0ee14500704411d7e17ce
+      sha256:  41a63a49069048ce09e53993a4a7e9dfd05fc70f0abd40a9c19b728b7abceb2e
