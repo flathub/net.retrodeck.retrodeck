@@ -22,7 +22,7 @@ finish-args:
   - --talk-name=org.freedesktop.login1.Manager
   - --filesystem=xdg-run/app/com.discordapp.Discord:create
   - --filesystem=xdg-config/gtk-3.0:ro
-  - --env=QT_QPA_PLATFORM=wayland-egl;wayland;xcb
+  - --env=QT_QPA_PLATFORM=wayland;wayland-egl;xcb
   - --allow=bluetooth
   - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck
   - --env=SDL_VIDEO_WAYLAND_WMCLASS=net.retrodeck.retrodeck
@@ -40,4 +40,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  9aa03d58d30f944bea94f0322fe8adb09a8960e7ba1a83f5a7eaa01e7a236d44
+      sha256:  a62b667625430c3c5d2e67c56f955f30ebcd198583737f447d62a2fb4fadf729
