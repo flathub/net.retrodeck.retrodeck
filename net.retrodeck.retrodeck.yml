@@ -1,10 +1,9 @@
 app-id: net.retrodeck.retrodeck
 runtime: org.kde.Platform
-runtime-version: "6.5"
+runtime-version: "6.7"
 sdk: org.kde.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.llvm16
-  - org.freedesktop.Sdk.Extension.rust-stable
+  - org.freedesktop.Sdk.Extension.llvm18
 command: retrodeck.sh
 
 finish-args:
@@ -40,4 +39,4 @@ modules:
     sources:
     - type: archive
       url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  a62b667625430c3c5d2e67c56f955f30ebcd198583737f447d62a2fb4fadf729
+      sha256:  eb1b2ac7e545a65dc7fd782acd2ac26ee2741f3d7de4efbcadf14802ad1fe82a
