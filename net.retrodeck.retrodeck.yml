@@ -1,10 +1,18 @@
 app-id: net.retrodeck.retrodeck
 runtime: org.kde.Platform
-runtime-version: "6.7"
+runtime-version: &runtime-version "6.7"
 sdk: org.kde.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.llvm18
+base: org.electronjs.Electron2.BaseApp
+base-version: "22.08"
 command: retrodeck.sh
+
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    directory: lib/ffmpeg
+    add-ld-path: .
+    version: 23.08
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 
 finish-args:
   - --socket=wayland
@@ -32,11 +40,12 @@ finish-args:
   - --filesystem=xdg-run/gamescope-0:ro
 
 modules:
-  - name: retrodeck
-    buildsystem: simple
-    build-commands:
-      - cp -rn files/* /app
-    sources:
-    - type: archive
-      url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-      sha256:  b78d863e3f0c885ef0a0e835a15f17c8734bc34871e03922c784aaddfea586ac
+
+    - name: RetroDECK
+      buildsystem: simple
+      build-commands:
+       - cp -rn files/* /app || echo "File as been skipped"
+      sources:
+        - type: archive
+          url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
+          sha256: b78d863e3f0c885ef0a0e835a15f17c8734bc34871e03922c784aaddfea586ac
