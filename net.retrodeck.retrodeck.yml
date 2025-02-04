@@ -44,8 +44,8 @@ modules:
     - name: RetroDECK
       buildsystem: simple
       build-commands:
-       - cp -rn files/* /app || echo "File as been skipped"
+       - cp -rn files/* /app || echo "Some files have been skipped"
       sources:
         - type: archive
-          url: https://artifacts.retrodeck.net/artifacts/RetroDECK-Artifact.tar.gz
-          sha256: b78d863e3f0c885ef0a0e835a15f17c8734bc34871e03922c784aaddfea586ac
+          url: https://github.com/RetroDECK/Artifacts/releases/download/0.9.0b/RetroDECK-Artifact.tar.gz
+          sha256: 228d026bbc289bb20d2cba55a7581a1ee586eff8c8c066450b26394cbbf91902
