@@ -48,4 +48,4 @@ modules:
       sources:
         - type: archive
           url: https://github.com/RetroDECK/Artifacts/releases/download/0.9.1b/RetroDECK-Artifact.tar.gz
-          sha256: 18b6b914fbe7779bed85122b329cb679dd16b1ec91431456b849d2e05d9734d3
+          sha256: 1d6d6a534db535287237003001efcfee89549968e8d2ff293d886665b28f1763
