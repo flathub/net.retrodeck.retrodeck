@@ -47,5 +47,5 @@ modules:
        - cp -rn files/* /app || echo "Some files have been skipped"
       sources:
         - type: archive
-          url: https://github.com/RetroDECK/Artifacts/releases/download/0.9.3b/RetroDECK-Artifact.tar.gz
-          sha256: c86881b567e7d48f4a7bd51914b99342664ec67d6812deb382aab748603e64f2
+          url: https://github.com/RetroDECK/Artifacts/releases/download/0.9.4b/RetroDECK-Artifact.tar.gz
+          sha256: 82a9c5444593e467850759e0940288fdea4e262562adf32d8280eac5f48f3cf1
