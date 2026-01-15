@@ -1,51 +1,94 @@
+
 app-id: net.retrodeck.retrodeck
 runtime: org.kde.Platform
-runtime-version: &runtime-version "6.7"
+runtime-version: '6.10'
 sdk: org.kde.Sdk
-base: org.electronjs.Electron2.BaseApp
-base-version: "22.08"
-command: retrodeck.sh
+command: retrodeck
+
 
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    add-ld-path: .
-    version: 23.08
-cleanup-commands:
-  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
+    directory: lib/ffmpeg     
+    add-ld-path: . 
+    version: '25.08'
+    cleanup-commands:
+      - mkdir -p "${FLATPAK_DEST}/lib/ffmpeg"
+
 
 finish-args:
-  - --socket=wayland
-  - --socket=x11
-  - --socket=pulseaudio
-  - --share=ipc
-  - --share=network
-  - --device=all
-  - --filesystem=host
-  - --filesystem=home/.var/app/com.valvesoftware.Steam
-  - --allow=multiarch
   - --talk-name=org.freedesktop.ScreenSaver
+
   - --talk-name=org.freedesktop.PowerManagement.Inhibit
+
   - --talk-name=org.freedesktop.login1.Manager
-  - --filesystem=xdg-run/app/com.discordapp.Discord:create
-  - --filesystem=xdg-config/gtk-3.0:ro
-  - --env=QT_QPA_PLATFORM=wayland;wayland-egl;xcb
+
+  - --share=ipc
+
+  - --device=all
+
   - --allow=bluetooth
-  - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck
-  - --env=SDL_VIDEO_WAYLAND_WMCLASS=net.retrodeck.retrodeck
-  - --unset-env=QEMU_AUDIO_DRV
+
+  - --filesystem=host
+  - --filesystem=/mnt
+
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
+
+  - --filesystem=xdg-config/gtk-3.0:ro
+
+  - --filesystem=~/.steam/steam:rw
   - --filesystem=xdg-data/Steam:rw
   - --filesystem=~/.steam:rw
   - --filesystem=~/.var/app/com.valvesoftware.Steam:rw
+
+  - --filesystem=/run/udev:ro
+
+  - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib32/gstreamer-1.0:/app/lib/gstreamer-1.0:/usr/lib/i386-linux-gnu/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0
+
   - --filesystem=xdg-run/gamescope-0:ro
+  - --env=LD_LIBRARY_PATH=/usr/lib/extensions/vulkan/gamescope/lib
+  
+  - --allow=multiarch
+
+  - --share=network
+  
+
+  - --socket=pulseaudio
+  - --filesystem=xdg-run/pipewire-0
+
+  - --socket=wayland
+  - --env=SDL_VIDEO_WAYLAND_WMCLASS=net.retrodeck.retrodeck
+  - --env=QT_QPA_PLATFORM=wayland;wayland-egl;xcb
+
+  - --socket=x11
+  - --env=SDL_VIDEO_X11_WMCLASS=net.retrodeck.retrodeck      
+
+  - --unset-env=QEMU_AUDIO_DRV
 
 modules:
+
+    - name: p7zip
+      no-autogen: true
+      sources:
+        - type: archive
+          url: https://github.com/p7zip-project/p7zip/archive/v17.06/p7zip-v17.06.tar.gz
+          sha256: c35640020e8f044b425d9c18e1808ff9206dc7caf77c9720f57eb0849d714cd1
+        - type: shell
+          commands:
+            - sed -i 's|/usr/local||g' makefile.common
+      cleanup:
+        - /man
 
     - name: RetroDECK
       buildsystem: simple
       build-commands:
+       - 7z x RetroDECK-Artifact.7z.001 -o. || (echo "Failed to extract 7z split archive" && exit 1)
        - cp -rn files/* /app || echo "Some files have been skipped"
       sources:
-        - type: archive
-          url: https://github.com/RetroDECK/Artifacts/releases/download/0.9.4b/RetroDECK-Artifact.tar.gz
-          sha256: 82a9c5444593e467850759e0940288fdea4e262562adf32d8280eac5f48f3cf1
+        - type: file
+          url: https://github.com/RetroDECK/RetroDECK/releases/download/0.10.0b/RetroDECK-Artifact.tar.gz.7z.001
+          sha256: 
+          dest: RetroDECK-Artifact.001
+        - type: file
+          url: https://github.com/RetroDECK/RetroDECK/releases/download/0.10.0b/RetroDECK-Artifact.tar.gz.7z.002
+          sha256: 
+          dest: RetroDECK-Artifact.002
