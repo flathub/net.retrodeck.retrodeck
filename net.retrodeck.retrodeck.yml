@@ -321,116 +321,112 @@ modules:
       - bash automation_tools/install_components.sh --cicd
     sources:
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/azahar.tar.gz
-          sha256: 1194e1b72aa4f73c0670d6f0906c9e0fc8dca1fc50a9acfb78a6d5f5560ab231
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/azahar.tar.gz
+          sha256: 7b20500534257f510755f562a1d1e384bebd429d24ef259d167f565f09640512
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/cemu.tar.gz
-          sha256: 3d16567f7e0b89093e3e59979f9f47eb54ae29ca4994c3682c3ebcf4d2f3591f
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/cemu.tar.gz
+          sha256: ea85d0753032d289feb5fc4d032bb04d2bc3eaa77fe8731b23d798d966c54a08
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/components-sources.json
-          sha256: 12a651a07b01840c8a454eef3cb1d128e34150a9759987c55562f514c0f4ff1f
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/components_version_list.md
+          sha256: 51ef3895df5d5009639448a9c3e02866488cd4c297270ce0fc5779a82f2b3a36
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/components_metadata.json
-          sha256: 774ba0f06f5df9a2d805e874aa1c9aa04bad04801b23027a7c415bbbffbbb92a
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/desired_versions.sh
+          sha256: 93117035fd0f5f9d056fee6ba596e5dfc92d048ef2edad5bae9b6ff626febe7d
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/dolphin.tar.gz
-          sha256: 976a6cf223bab4e6b4f9dc50d4282f7976bc922dcca18e77e30b446576233762
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/dolphin.tar.gz
+          sha256: 3d9272b16f479b687c6bfaa31a680e6474b50553995871507816b87be41b1142
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/duckstation.tar.gz
-          sha256: 89738549491555a13cc4a8700a65cf9f97a8b7358b8a1f4140e52257ea756e9c
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/duckstation.tar.gz
+          sha256: 155a1ec263b5c8166b4cbfa31343977443b6c1848d391bcbf666b39485b457ed
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/es-de.tar.gz
-          sha256: 0025c539008952767a8090c50b6761936f0cc48591b42df85fe560f285c61d60
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/es-de.tar.gz
+          sha256: 02e3aa7972943669813d1aa951d5d27afee74959b7b055b2acf989c4de1c62bf
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/flips.tar.gz
-          sha256: 848e95748be2a6a7179f9f5a92289aa067832a057cee8551a041599752f2e1b6
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/flips.tar.gz
+          sha256: 4ef0cc5c39362fabf4a3a0ac43d5c7139e784235218ae90b8be06c2e1aa384c3
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/framework.tar.gz
-          sha256: 3d7fe4f919eae2dbdfc7ea5363f0b1c98fcffa8992932ca000f7cd9d2eefe091
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/framework.tar.gz
+          sha256: bfe826d0ca03ca0b56c5205808e956816ed169491b032a8cbe857993027283f6
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/gzdoom.tar.gz
-          sha256: 5818891babbd80ce757bff862a80b67a9be645a51ac50ae2e4acfea90efdbaa6
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/gzdoom.tar.gz
+          sha256: ab14b268b76e59512eda633b54c371a88a895730e979324fa0f7c8f20d0e1572
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/mame.tar.gz
-          sha256: a21df487177f6947ebe1fa14cdf99c6b595791a1114531c7a8e92d6bfdc9c73c
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/mame.tar.gz
+          sha256: 05836d9bb163f379f0f614c5e2378db0ede816e7e789ca8ede7ab669b5493796
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/melonds.tar.gz
-          sha256: 8b9a51425faa50b1620d623ea97c3750597b110944c3d54ec89983bcb230c262
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/melonds.tar.gz
+          sha256: fdc2c272aede778e36d7b7dbd05441fd53bf2d46b6367b39c57844558cc3497d
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/openbor.tar.gz
-          sha256: b42cba8198a21013e4fbe8c0698d233074a13f7df8163ac3c89a27d8334884b5
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/openbor.tar.gz
+          sha256: 574f35b2f58bdea4b53a68fb4b0c8add2e121d221ddfa4fa9997c5a65d87eb24
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/pcsx2.tar.gz
-          sha256: 11151ee9b3eb9ca9e3cefb1668214468423248178c04a923aa25bfaf47da82b8
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/pcsx2.tar.gz
+          sha256: a3e363320f4846f4c1ab3d0d2487fd8b3f1ff9db0c574f5d380dab42ac0abe97
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/pico-8.tar.gz
-          sha256: a449ab47f613f2b825065818ed876dd34cbfa5e462c6997f4e651bc1ccfa4e16
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/pico-8.tar.gz
+          sha256: 44f12e8d5a30df6b647126fe4676e86d850b2cd1df76564a92395e769ec61727
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/portmaster.tar.gz
-          sha256: 7aef7e2975c46f9eeeb9c47873589f6fc86a233a2e27f7e60ccd07bc8f8cc94e
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/portmaster.tar.gz
+          sha256: 3f38802058af34ace2933bb92e1034654e579c326bb5aafa9e6cf76d0dac3847
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/ppsspp.tar.gz
-          sha256: a5049cc57d80abff3fb3c677f0001fa553986202852893824df8c54f401bb065
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/ppsspp.tar.gz
+          sha256: b7b7ac81ee267df73a3728872e9a98a53c33950bcbcf2a903e34b1e1083f307b
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/primehack.tar.gz
-          sha256: fc23337cb54540da053f3244fd85cd4aeaa7068dd7753cd7f0fb093eccdafd38
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/primehack.tar.gz
+          sha256: 17c9d1e47be1c5b983d355b19f45bbbb1366e97b8d965170a2f6a592b0dcdbe9
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/release_metadata.json
-          sha256: 774ba0f06f5df9a2d805e874aa1c9aa04bad04801b23027a7c415bbbffbbb92a
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/retroarch.tar.gz
+          sha256: 67b73050231167899f43d00c99deb74caac46c0577a31005bbff245566501067
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/retroarch.tar.gz
-          sha256: d7279d4e09f88f76be9073b683e3c97037b82669e348c996a4df2e1c5aa523f0
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/rpcs3.tar.gz
+          sha256: 109c47b87767395c1393bfe55b54a1f5460d90e9031191b9998ca90c3f533eca
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/rpcs3.tar.gz
-          sha256: b0b51cf96aa2e19d9c6ccce7fc6273ee47b380e7f55992917e3960d5f4734e44
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/ruffle.tar.gz
+          sha256: 7c96ff0aeadb9f2033116ce956b77860791f54b1f6c487d21393f2b6e4e83c30
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/ruffle.tar.gz
-          sha256: 82e103ee915030d782732937460bd1d9bed8dccacc9c01ca0335e9efcf372778
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/solarus.tar.gz
+          sha256: 5a5a55840e8215131960a4655c0ccc2eaa9e94002b95118bc5c0b8bf2420212c
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/solarus.tar.gz
-          sha256: 5b2a70797f38bf158981f436d81fea1d307a9ac5ab3860ba81eea9c487a6cb80
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/steam-rom-manager.tar.gz
+          sha256: bb563a2818396ad42ac04756857155f1c583c9b7be782d79f5fc65c5a00c0d79
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/steam-rom-manager.tar.gz
-          sha256: 5af8c1c13e97b0a13f2065b59eab72e4f9178232b9922ff3b1943cf73ece4b1a
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/vita3k.tar.gz
+          sha256: 4c9279c1b5350370875cda8ebfaae87aefd03ff77eb636c359f8608f74dc321c
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/vita3k.tar.gz
-          sha256: a948209619b392fcfe84fd5b2d7c69dc4f093849a59b3a2433bbf947ce7ae7e8
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/xemu.tar.gz
+          sha256: 0c6de12e74f3eca9054ac8eb509cec06043da9e8cf8fe49076de6f8ece698d85
           dest: components
         - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/xemu.tar.gz
-          sha256: 5223a62de4ab7d5b23ba0646b724804bf7963eb067341ddc722581b0da9fad65
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/0.11.0-20260225-183512/xroar.tar.gz
-          sha256: 10986e29ec93862489fb79b529ec378ee53dc36648ac1a2a579c3b152e1f6fb1
+          url: https://github.com/RetroDECK/components/releases/download/main-20260324-1408/xroar.tar.gz
+          sha256: d978e05495ea5cf380eec988083cd5d5941d9d0839dfca5c2c610c487bc65d57
           dest: components
         - type: git
           url: https://github.com/RetroDECK/RetroDECK
-          commit: cd9bad204523ec7a4dc34df1b53d27d38423bdea
+          commit: deaf06743c84a54fae21f1ea42b6008729bfa2a0
 
   - name: finisher
     buildsystem: simple
@@ -494,4 +490,4 @@ modules:
     sources:
         - type: git
           url: https://github.com/RetroDECK/RetroDECK
-          commit: cd9bad204523ec7a4dc34df1b53d27d38423bdea
+          commit: deaf06743c84a54fae21f1ea42b6008729bfa2a0
