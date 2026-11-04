@@ -146,7 +146,7 @@ modules:
   - name: initialization
     buildsystem: simple
     build-commands:
-      - |
+      - |2
 
         # Create the retrodeck directory in the Flatpak destination
         mkdir -p ${FLATPAK_DEST}/retrodeck/
@@ -203,8 +203,8 @@ modules:
       - --disable-debug
     sources:
       - type: archive
-        url: https://download.samba.org/pub/rsync/src/rsync-3.5.1.tar.gz
-        sha256: c55f9c9dc10fb8bec397b399a0fdded53cc9a2d8e30891bb0d63724d25c37bef
+        url: https://download.samba.org/pub/rsync/src/rsync-3.5.2.tar.gz
+        sha256: a10d591825251e070f74c98df3daad195def4ed81b4a2de16169026aea33f6c8
         x-checker-data:
           type: anitya
           project-id: 4217
@@ -314,126 +314,125 @@ modules:
   # -------------------------------------------------------------------------
   # install-components - runs the RetroDECK component installer script retrodeck_builder.sh.
   # -------------------------------------------------------------------------
-  
   - name: install-components
     buildsystem: simple
     build-commands:
       - bash automation_tools/install_components.sh --cicd
     sources:
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/azahar.tar.gz
-          sha256: f5d8a9181c791db02cc187eb2cb4785f78ae42a21fa0cabef9531ee8ee6b8b53
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/cemu.tar.gz
-          sha256: c96d4f729bf231eba4483048a6752bc3d4e6699783aafcbcb2093d3707c8674a
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/components_version_list.md
-          sha256: 696f1f036c00ba39a1be646a358f37f7aec2b6b5d28d6f0b77bb967d02d835a5
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/desired_versions.sh
-          sha256: 04d1ddc3a50939b901ca9594e0e4a112f9242e4ef172b42af7886a474735f5e2
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/dolphin.tar.gz
-          sha256: 629325112965bd5307cddc2a584c1348147437be838b4e82c08989472a2d2c93
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/duckstation.tar.gz
-          sha256: 7e4cf13af112affe947ce50481695f1521ec74d2b3daa4baa95466568a7c3b99
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/es-de.tar.gz
-          sha256: a2f991d75753194ac2176f1d0a62c52645af09db4969761ef6544f88e4a98afb
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/flips.tar.gz
-          sha256: 492d08682a5b6453192fade7adfb8d3964e12e927a95eca53169e4651f828bf5
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/framework.tar.gz
-          sha256: 2b861bc320258e0ba8b37be17caa5748f67cedabef43700bbbec1db5c930d872
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/gzdoom.tar.gz
-          sha256: 50d7f40090497a7d273fa228bd1520714e16af989c9d2a1a4414d4ce3845cf3c
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/mame.tar.gz
-          sha256: b5280c6e434831bdf4c40fadfc02e18f6d1063a5e80201b050811813f6e9a1bc
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/melonds.tar.gz
-          sha256: 37655b6504983e35ca1c6119e8252b38f34e11ae3a0da6ef38e8b02407dd207c
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/openbor.tar.gz
-          sha256: 5302d744f1ef8f1e0348013531ec5f792fd6d94aeae5e44e4bbe2ec88ab79a03
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/pcsx2.tar.gz
-          sha256: eedadb02641426fcf5e5e6dd55eedcd0ab95359868048bb779e60117c71be2c4
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/pico-8.tar.gz
-          sha256: ad9a0787c4a74ef40f23822be428317209dd55bb1c35f4898cf4823413724f5e
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/portmaster.tar.gz
-          sha256: 7552d47a43d2f80c9b0c401b3812ce145881c53aa957e9d5c1dfd75eaa855686
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/ppsspp.tar.gz
-          sha256: 3180f2b43457997184192f77279203dde23ffbe09f4def0898deef0f9305342d
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/primehack.tar.gz
-          sha256: 1be7d58595aafad0c661a66bba9c9896b7874f54cc2b1a7c9e539d50763b01df
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/retroarch.tar.gz
-          sha256: a694ecc58623f4b2297cea73e5626880d11188f2d106a6e7505e469fae2b5d2f
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/rpcs3.tar.gz
-          sha256: 7d70add26e57a9a0d650c05b20bb9c78cba486de8eed4d4bfde21bee7656b35c
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/ruffle.tar.gz
-          sha256: 0fbb9a18daa3eb662ad12e8d89f204f40104d07846f31a0e7f5c1501e8bae70f
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/solarus.tar.gz
-          sha256: 222e6872502f1f13808e5bbd577559d22173d69f9d507bce9934e010ce251cca
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/steam-rom-manager.tar.gz
-          sha256: 72b0f3fab19fd4b3b27e11b64c591c8e703cec6032d6bf536ed018aff66518fe
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/vita3k.tar.gz
-          sha256: f167b4151c8415dc3b65c7fb0fb0d55f2fd1d92905dd4b20d2fe8fccbfda8bef
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/xemu.tar.gz
-          sha256: fc40c5fe2bd42f959e27a836b9b1bf16160b935163e332b1686ba45e60b57651
-          dest: components
-        - type: file
-          url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/xroar.tar.gz
-          sha256: 8056bea9d9a4e6923886a9bd8c314148816c1f5d922f83e9db89e799255b5d00
-          dest: components
-        - type: git
-          url: https://github.com/RetroDECK/RetroDECK
-          commit: 7786a849179eb2ca94e8ca413259e28adbcb1e39
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/azahar.tar.gz
+        sha256: f5d8a9181c791db02cc187eb2cb4785f78ae42a21fa0cabef9531ee8ee6b8b53
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/cemu.tar.gz
+        sha256: c96d4f729bf231eba4483048a6752bc3d4e6699783aafcbcb2093d3707c8674a
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/components_version_list.md
+        sha256: 696f1f036c00ba39a1be646a358f37f7aec2b6b5d28d6f0b77bb967d02d835a5
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/desired_versions.sh
+        sha256: 04d1ddc3a50939b901ca9594e0e4a112f9242e4ef172b42af7886a474735f5e2
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/dolphin.tar.gz
+        sha256: 629325112965bd5307cddc2a584c1348147437be838b4e82c08989472a2d2c93
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/duckstation.tar.gz
+        sha256: 7e4cf13af112affe947ce50481695f1521ec74d2b3daa4baa95466568a7c3b99
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/es-de.tar.gz
+        sha256: a2f991d75753194ac2176f1d0a62c52645af09db4969761ef6544f88e4a98afb
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/flips.tar.gz
+        sha256: 492d08682a5b6453192fade7adfb8d3964e12e927a95eca53169e4651f828bf5
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/framework.tar.gz
+        sha256: 2b861bc320258e0ba8b37be17caa5748f67cedabef43700bbbec1db5c930d872
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/gzdoom.tar.gz
+        sha256: 50d7f40090497a7d273fa228bd1520714e16af989c9d2a1a4414d4ce3845cf3c
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/mame.tar.gz
+        sha256: b5280c6e434831bdf4c40fadfc02e18f6d1063a5e80201b050811813f6e9a1bc
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/melonds.tar.gz
+        sha256: 37655b6504983e35ca1c6119e8252b38f34e11ae3a0da6ef38e8b02407dd207c
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/openbor.tar.gz
+        sha256: 5302d744f1ef8f1e0348013531ec5f792fd6d94aeae5e44e4bbe2ec88ab79a03
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/pcsx2.tar.gz
+        sha256: eedadb02641426fcf5e5e6dd55eedcd0ab95359868048bb779e60117c71be2c4
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/pico-8.tar.gz
+        sha256: ad9a0787c4a74ef40f23822be428317209dd55bb1c35f4898cf4823413724f5e
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/portmaster.tar.gz
+        sha256: 7552d47a43d2f80c9b0c401b3812ce145881c53aa957e9d5c1dfd75eaa855686
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/ppsspp.tar.gz
+        sha256: 3180f2b43457997184192f77279203dde23ffbe09f4def0898deef0f9305342d
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/primehack.tar.gz
+        sha256: 1be7d58595aafad0c661a66bba9c9896b7874f54cc2b1a7c9e539d50763b01df
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/retroarch.tar.gz
+        sha256: a694ecc58623f4b2297cea73e5626880d11188f2d106a6e7505e469fae2b5d2f
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/rpcs3.tar.gz
+        sha256: 7d70add26e57a9a0d650c05b20bb9c78cba486de8eed4d4bfde21bee7656b35c
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/ruffle.tar.gz
+        sha256: 0fbb9a18daa3eb662ad12e8d89f204f40104d07846f31a0e7f5c1501e8bae70f
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/solarus.tar.gz
+        sha256: 222e6872502f1f13808e5bbd577559d22173d69f9d507bce9934e010ce251cca
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/steam-rom-manager.tar.gz
+        sha256: 72b0f3fab19fd4b3b27e11b64c591c8e703cec6032d6bf536ed018aff66518fe
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/vita3k.tar.gz
+        sha256: f167b4151c8415dc3b65c7fb0fb0d55f2fd1d92905dd4b20d2fe8fccbfda8bef
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/xemu.tar.gz
+        sha256: fc40c5fe2bd42f959e27a836b9b1bf16160b935163e332b1686ba45e60b57651
+        dest: components
+      - type: file
+        url: https://github.com/RetroDECK/components/releases/download/main-20261003-0649/xroar.tar.gz
+        sha256: 8056bea9d9a4e6923886a9bd8c314148816c1f5d922f83e9db89e799255b5d00
+        dest: components
+      - type: git
+        url: https://github.com/RetroDECK/RetroDECK
+        commit: 7786a849179eb2ca94e8ca413259e28adbcb1e39
 
   - name: finisher
     buildsystem: simple
     build-commands:
 
       # This prevents appstream-compose to fail
-      - | 
+      - |
         if [ -d ${FLATPAK_DEST}/usr ]; then
           mv -n ${FLATPAK_DEST}/usr/** ${FLATPAK_DEST}/share
           rm -rf ${FLATPAK_DEST}/usr
@@ -451,7 +450,8 @@ modules:
       # Tools
       - mkdir -p ${FLATPAK_DEST}/tools
       - cp -r tools/*.sh ${FLATPAK_DEST}/tools
-      - find ${FLATPAK_DEST}/tools -type f \( -name "*.sh" -o -name "*.py" \) -exec chmod +x {} \;
+      - find ${FLATPAK_DEST}/tools -type f \( -name "*.sh" -o -name "*.py" \) -exec
+        chmod +x {} \;
 
       # Function libraries
       - mkdir -p ${FLATPAK_DEST}/libexec
@@ -489,6 +489,6 @@ modules:
 
 
     sources:
-        - type: git
-          url: https://github.com/RetroDECK/RetroDECK
-          commit: 7786a849179eb2ca94e8ca413259e28adbcb1e39
+      - type: git
+        url: https://github.com/RetroDECK/RetroDECK
+        commit: 7786a849179eb2ca94e8ca413259e28adbcb1e39
